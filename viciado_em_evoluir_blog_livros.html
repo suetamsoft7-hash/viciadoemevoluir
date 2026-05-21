@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Blog de finanças pessoais para organizar seu dinheiro, criar reservas e evoluir todos os dias.">
+  <meta name="theme-color" content="#0B7A5D">
+  <title>Viciado em Evoluir — Finanças, Mentalidade & Renda Extra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --green-900: #052E24;
+      --green-800: #074033;
+      --green-700: #0B5C4A;
+      --green-600: #0B7A5D;
+      --green-500: #17A673;
+      --green-400: #2DBF8A;
+      --green-100: #C8EFE3;
+      --green-50: #E8F8F2;
+      --bg: #F2F5F3;
+      --bg-card: #FFFFFF;
+      --text-1: #0D1F1A;
+      --text-2: #3A534B;
+      --text-3: #7A9A90;
+      --border: #DDE8E4;
+      --shadow: 0 2px 16px rgba(11, 122, 93, 0.08);
+      --font-head: 'Fraunces', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text-1);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(242, 245, 243, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .navbar-brand {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--green-900);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .navbar-brand span {
+      color: var(--green-600);
+    }
+
+    .navbar-nav {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .navbar-nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-2);
+      text-decoration: none;
+      padding: 0.5rem 0.85rem;
+      border-radius: 10px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .navbar-nav a:hover,
+    .navbar-nav a.active {
+      background: var(--green-50);
+      color: var(--green-600);
+    }
+
+    .navbar-search {
+      display: flex;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.35rem 0.75rem;
+      gap: 0.5rem;
+      max-width: 220px;
+      flex: 1;
+    }
+
+    .navbar-search input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--text-1);
+      width: 100%;
+    }
+
+    .navbar-search input::placeholder {
+      color: var(--text-3);
+    }
+
+    .navbar-search svg {
+      flex-shrink: 0;
+      color: var(--text-3);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      color: var(--text-1);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 55%, var(--green-500) 100%);
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.03em;
+    }
+
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      max-width: 700px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      color: var(--green-800);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.65);
+      margin-top: 0.25rem;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-sub {
+      color: var(--text-3);
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── FILTER CHIPS ── */
+    .chips {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem;
+    }
+
+    .chip {
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      border: 1.5px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-2);
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+
+    .chip:hover {
+      border-color: var(--green-400);
+      color: var(--green-600);
+    }
+
+    .chip.active {
+      background: var(--green-600);
+      border-color: var(--green-600);
+      color: #fff;
+    }
+
+    /* ── ARTICLES GRID ── */
+    .articles-section {
+      padding: 3.5rem 0;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .article-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: var(--green-100);
+    }
+
+    .article-card.hidden {
+      display: none;
+    }
+
+    .article-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: var(--green-50);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .article-cat {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green-600);
+      margin-bottom: 0.4rem;
+    }
+
+    .article-title {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 0.6rem;
+      color: var(--text-1);
+    }
+
+    .article-resume {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .article-meta-info {
+      font-size: 0.78rem;
+      color: var(--text-3);
+    }
+
+    .fav-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+      padding: 0.25rem;
+      border-radius: 6px;
+      color: var(--text-3);
+      transition: color 0.15s, transform 0.15s;
+    }
+
+    .fav-btn:hover {
+      transform: scale(1.25);
+    }
+
+    .fav-btn.active {
+      color: #e5535b;
+    }
+
+    /* ── MODAL (article detail) ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 46, 36, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+      animation: fadeIn 0.2s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .modal {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideUp 0.3s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(60px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--green-900), var(--green-600));
+      padding: 2rem 1.75rem 1.75rem;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.4rem 0.6rem;
+      line-height: 1;
+      transition: background 0.15s;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .modal-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-cat {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.4rem;
+    }
+
+    .modal-title {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .modal-meta {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .modal-body {
+      padding: 1.75rem;
+    }
+
+    .modal-content {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text-2);
+      white-space: pre-line;
+    }
+
+    .modal-related {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .modal-related h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    /* ── PRODUCTS ── */
+    .products-section {
+      padding: 3.5rem 0;
+      background: var(--bg-card);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 0;
+    }
+
+    .product-card {
+      background: var(--bg);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-card.hidden {
+      display: none;
+    }
+
+    .product-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: var(--green-50);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-cat {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green-600);
+      margin-bottom: 0.4rem;
+    }
+
+    .product-name {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .product-desc {
+      font-size: 0.875rem;
+      color: var(--text-2);
+      line-height: 1.5;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+
+    .product-badge {
+      display: inline-block;
+      background: var(--green-50);
+      color: var(--green-700);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 0.75rem;
+    }
+
+    .product-price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green-600);
+      margin-bottom: 1rem;
+      min-height: 1.5rem;
+    }
+
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--green-600);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.7rem 1.25rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-700);
+      transform: translateY(-1px);
+    }
+
+    .disclaimer {
+      font-size: 0.72rem;
+      color: var(--text-3);
+      margin-top: 0.6rem;
+    }
+
+    /* ── FAVORITES ── */
+    .favorites-section {
+      padding: 3.5rem 0;
+    }
+
+    #favs-empty {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-3);
+    }
+
+    #favs-empty svg {
+      margin: 0 auto 1rem;
+      display: block;
+    }
+
+    #favs-empty p {
+      font-size: 1rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-section {
+      padding: 3.5rem 0;
+      background: var(--bg-card);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .about-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+
+    .about-card-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .about-card-title {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-card-text {
+      font-size: 0.875rem;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+
+    .about-main {
+      background: linear-gradient(135deg, var(--green-900), var(--green-700));
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+
+    .about-main h2 {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .about-main p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .roadmap {
+      margin-top: 2rem;
+    }
+
+    .roadmap h3 {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .roadmap-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-2);
+    }
+
+    .roadmap-item-icon {
+      color: var(--green-600);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green-900);
+      color: rgba(255, 255, 255, 0.6);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      line-height: 1.65;
+    }
+
+    footer strong {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ── TABS ── */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* ── SEARCH RESULTS MSG ── */
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-3);
+      display: none;
+    }
+
+    .no-results.visible {
+      display: block;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .navbar-nav {
+        display: none;
+      }
+
+      .navbar-nav.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem;
+        gap: 0.25rem;
+        animation: fadeIn 0.15s;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 3rem 1.25rem 2.5rem;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .modal-overlay {
+        padding: 0;
+        align-items: flex-end;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar-search {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand" onclick="navigate('home')">Viciado em <span>Evoluir</span></a>
+    <ul class="navbar-nav" id="main-nav">
+      <li><a href="#" onclick="navigate('home')" data-page="home" class="active">Artigos</a></li>
+      <li><a href="#" onclick="navigate('produtos')" data-page="produtos">Livros</a></li>
+      <li><a href="#" onclick="navigate('favoritos')" data-page="favoritos">Favoritos</a></li>
+      <li><a href="#" onclick="navigate('sobre')" data-page="sobre">Sobre</a></li>
+    </ul>
+    <div class="navbar-search">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </svg>
+      <input type="text" placeholder="Pesquisar..." id="global-search" oninput="handleSearch(this.value)"
+        autocomplete="off">
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M3 12h18M3 6h18M3 18h18" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- ═══════════ PAGE: HOME ═══════════ -->
+  <div class="page active" id="page-home">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-badge">💡 Finanças · Mentalidade · Renda Extra</div>
+      <h1>Conteúdos para organizar seu dinheiro e evoluir todos os dias</h1>
+      <p>Leia artigos práticos, salve seus favoritos e conheça ferramentas que vão mudar sua relação com o dinheiro.
+        Baixe tambem Nosso Aplicativo para gerenciar suas Finanças</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+
+        <a href="#artigos" class="hero-cta">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
+          Ver artigos
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.suetamsoft.despesasfinancaspessoais" target="_blank" class="hero-cta"
+          style="background:#1DB954;color:white">
+
+          📱 Baixar aplicativo
+        </a>
+
+      </div>
+
+
+      </a>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">16+</div>
+          <div class="hero-stat-label">Artigos</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">14+</div>
+          <div class="hero-stat-label">Produtos</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">Gratuito</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section class="articles-section container" id="artigos">
+      <p class="section-title">Artigos recentes</p>
+      <p class="section-sub">Conteúdo prático sobre finanças, mentalidade e renda extra</p>
+
+      <div class="chips" id="article-chips">
+        <div class="chip active" onclick="filterArticles('Todos', this)">Todos</div>
+        <div class="chip" onclick="filterArticles('Organização', this)">📂 Organização</div>
+        <div class="chip" onclick="filterArticles('Economia', this)">💰 Economia</div>
+        <div class="chip" onclick="filterArticles('Mentalidade', this)">🧠 Mentalidade</div>
+        <div class="chip" onclick="filterArticles('Renda Extra', this)">💸 Renda Extra</div>
+        <div class="chip" onclick="filterArticles('Investimentos', this)">📈 Investimentos</div>
+        <div class="chip" onclick="filterArticles('Cartão de crédito', this)">💳 Cartão</div>
+        <div class="chip" onclick="filterArticles('Ferramentas', this)">🛠 Ferramentas</div>
+        <div class="chip" onclick="filterArticles('Produtividade', this)">🚀 Produtividade</div>
+        <div class="chip" onclick="filterArticles('Livros', this)">📚 Livros</div>
+      </div>
+
+      <div class="articles-grid" id="articles-grid">
+        <!-- injected by JS -->
+      </div>
+      <p class="no-results" id="articles-no-results">Nenhum artigo encontrado para essa busca.</p>
+    </section>
+
+  </div>
+
+  <!-- ═══════════ PAGE: PRODUTOS ═══════════ -->
+  <div class="page" id="page-produtos">
+    <section class="hero" style="padding:3rem 1.5rem 2.5rem">
+      <div class="hero-badge">🛍 Recomendações do blog</div>
+      <h1 style="font-size:clamp(1.75rem,4vw,2.75rem)">Ferramentas e produtos para sua evolução</h1>
+      <p>Planilhas, cursos, guias e livros selecionados com carinho. Alguns links são de afiliado — clicando, você apoia
+        o blog sem pagar nada a mais.</p>
+    </section>
+
+    <section class="products-section">
+      <div class="container">
+        <div class="chips" id="product-chips">
+          <div class="chip active" onclick="filterProducts('Todos', this)">Todos</div>
+          <div class="chip" onclick="filterProducts('Organização', this)">📂 Organização</div>
+          <div class="chip" onclick="filterProducts('Educação', this)">📚 Educação</div>
+          <div class="chip" onclick="filterProducts('Renda Extra', this)">💸 Renda Extra</div>
+          <div class="chip" onclick="filterProducts('Ferramentas', this)">🛠 Ferramentas</div>
+          <div class="chip" onclick="filterProducts('Livros', this)">📚 Livros</div>
+        </div>
+        <div class="products-grid" id="products-grid">
+          <!-- injected by JS -->
+        </div>
+        <p class="no-results" id="products-no-results">Nenhum produto encontrado para essa busca.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════ PAGE: FAVORITOS ═══════════ -->
+  <div class="page" id="page-favoritos">
+    <section class="articles-section container">
+      <p class="section-title">❤️ Seus favoritos</p>
+      <p class="section-sub">Artigos que você salvou para ler mais tarde</p>
+      <div class="articles-grid" id="favs-grid"></div>
+      <div id="favs-empty">
+        <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+          opacity=".3">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+        <p>Você ainda não salvou nenhum artigo.<br>Clique no ❤️ em qualquer artigo para salvar.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════ PAGE: SOBRE ═══════════ -->
+  <div class="page" id="page-sobre">
+    <section class="about-section">
+      <div class="container">
+        <div class="about-main">
+          <div style="font-size:2.5rem;margin-bottom:1rem">📈</div>
+          <h2>Viciado em Evoluir</h2>
+          <p>Blog de finanças pessoais criado para publicar artigos, divulgar ferramentas úteis e recomendar produtos
+            digitais com links de afiliado. Acreditamos que qualquer pessoa pode transformar sua relação com o dinheiro
+            — o primeiro passo é começar.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-card-icon">✍️</div>
+            <div class="about-card-title">Conteúdo original</div>
+            <div class="about-card-text">Artigos escritos com linguagem simples, diretos ao ponto e focados em ação.
+            </div>
+          </div>
+          <div class="about-card">
+            <div class="about-card-icon">🔗</div>
+            <div class="about-card-title">Links de afiliado</div>
+            <div class="about-card-text">Recomendamos produtos em que acreditamos. Ao comprar pelo link, você apoia o
+              blog sem custo extra.</div>
+          </div>
+          <div class="about-card">
+            <div class="about-card-icon">📱</div>
+            <div class="about-card-title">100% digital</div>
+            <div class="about-card-text">Acesse de qualquer dispositivo. Site otimizado para mobile, tablet e desktop.
+            </div>
+          </div>
+          <div class="about-card">
+            <div class="about-card-icon">🎯</div>
+            <div class="about-card-title">Foco em evolução</div>
+            <div class="about-card-text">Cada publicação tem um objetivo: gerar uma ação concreta na sua vida
+              financeira.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════ ARTICLE MODAL ═══════════ -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div class="modal-icon" id="modal-icon"></div>
+        <div class="modal-cat" id="modal-cat"></div>
+        <div class="modal-title" id="modal-title"></div>
+        <div class="modal-meta" id="modal-meta"></div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-content" id="modal-content"></div>
+        <div class="modal-related" id="modal-related"></div>
+      </div>
+    </div>
+  </div>
+
+  <section style="
+padding:4rem 1.5rem;
+background:linear-gradient(135deg,#052E24,#0B7A5D);
+color:white;
+text-align:center;
+margin-top:3rem;
+">
+
+    <div class="container">
+
+      <div style="font-size:4rem;margin-bottom:1rem">📱</div>
+
+      <h2 style="
+font-family:var(--font-head);
+font-size:2.2rem;
+margin-bottom:1rem;
+">
+        Controle suas finanças na palma da mão
+      </h2>
+
+      <p style="
+max-width:600px;
+margin:0 auto 2rem;
+color:rgba(255,255,255,0.75);
+font-size:1rem;
+line-height:1.7;
+">
+        Baixe agora meu aplicativo de finanças pessoais e organize seus gastos, metas e orçamento de forma simples.
+      </p>
+
+      <a href="https://play.google.com/store/apps/details?id=com.suetamsoft.despesasfinancaspessoais" target="_blank"
+        style="
+display:inline-flex;
+align-items:center;
+gap:.7rem;
+background:white;
+color:#052E24;
+padding:1rem 1.8rem;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+font-size:1rem;
+">
+
+        📲 Baixar na Play Store
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>Viciado em Evoluir</strong> · Blog de Finanças Pessoais<br>
+    Conteúdo informativo. Os links de produtos podem ser de afiliado. <br>
+    Feito com 💚 para quem quer evoluir todos os dias.
+  </footer>
+
+  <script>
+    const POSTS = [
+      {
+        id: 'organizar-7-dias',
+        titulo: 'Como organizar sua vida financeira em 7 dias',
+        categoria: 'Organização',
+        resumo: 'Um passo a passo simples para entender seus gastos, montar metas e começar a evoluir.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '💼',
+        minutos: 4,
+        conteudo: `Organizar sua vida financeira não precisa ser complicado. O primeiro passo é enxergar para onde seu dinheiro está indo.
+
+1. Anote todas as entradas e saídas.
+2. Separe gastos essenciais e não essenciais.
+3. Defina uma meta financeira possível.
+4. Crie um limite semanal de gastos.
+5. Evite compras por impulso.
+6. Guarde uma pequena quantia todos os dias.
+7. Revise sua evolução no final da semana.
+
+O segredo não é ganhar muito, mas aprender a administrar melhor o que você já tem.`,
+      },
+      {
+        id: 'reserva-emergencia',
+        titulo: 'Reserva de emergência: por onde começar?',
+        categoria: 'Economia',
+        resumo: 'Entenda por que guardar dinheiro é proteção, segurança e liberdade.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '🏦',
+        minutos: 3,
+        conteudo: `A reserva de emergência é um dinheiro guardado para imprevistos, como problemas de saúde, perda de renda ou consertos urgentes.
+
+Comece com pouco. Mesmo R$ 5,00 ou R$ 10,00 por semana já criam o hábito.
+
+O ideal é juntar de 3 a 6 meses do seu custo de vida, mas não se preocupe em começar grande. O importante é começar.`,
+      },
+      {
+        id: '5-habitos-bloqueadores',
+        titulo: '5 hábitos que impedem você de prosperar',
+        categoria: 'Mentalidade',
+        resumo: 'Pequenas atitudes podem estar atrasando sua evolução financeira sem você perceber.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '🧠',
+        minutos: 5,
+        conteudo: `Muitas vezes, o problema não está apenas no salário, mas nos hábitos.
+
+Evite estes comportamentos:
+
+• Comprar para impressionar outras pessoas.
+• Gastar antes de planejar.
+• Ignorar pequenas despesas.
+• Não estudar sobre dinheiro.
+• Achar que investir é só para ricos.
+
+A prosperidade começa quando você decide mudar sua mentalidade e suas atitudes diárias.`,
+      },
+      {
+        id: 'economizar-sem-parar',
+        titulo: 'Como economizar sem deixar de viver',
+        categoria: 'Economia',
+        resumo: 'Economizar não significa cortar tudo, mas escolher melhor.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '📈',
+        minutos: 4,
+        conteudo: `Economizar com equilíbrio é possível. Você não precisa parar de sair, comer algo diferente ou se divertir.
+
+A ideia é escolher com consciência:
+
+• Compare preços.
+• Defina um valor mensal para lazer.
+• Evite parcelamentos desnecessários.
+• Faça listas antes de comprar.
+• Pense antes de cada gasto: eu preciso disso agora?
+
+Quando você controla o dinheiro, ele deixa de controlar você.`,
+      },
+      {
+        id: 'dinheiro-sobra',
+        titulo: 'Por que seu dinheiro nunca sobra no fim do mês?',
+        categoria: 'Organização',
+        resumo: 'Entenda os erros silenciosos que acabam com seu salário.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '💳',
+        minutos: 5,
+        conteudo: `Muitas pessoas trabalham o mês inteiro e ainda assim sentem que o dinheiro desaparece rapidamente.
+
+Isso normalmente acontece por três motivos:
+
+• Pequenos gastos acumulados.
+• Falta de planejamento semanal.
+• Compras emocionais.
+
+O problema não é apenas ganhar pouco, mas não controlar o fluxo do dinheiro.
+
+Comece anotando tudo por 30 dias. Você ficará surpreso com quanto dinheiro escapa sem perceber.`,
+      },
+      {
+        id: 'mentalidade-rico',
+        titulo: 'A mentalidade que separa pessoas pobres e pessoas ricas',
+        categoria: 'Mentalidade',
+        resumo: 'A diferença começa muito antes do dinheiro aparecer.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '🧠',
+        minutos: 6,
+        conteudo: `Pessoas financeiramente inteligentes pensam diferente.
+
+Enquanto muitos focam apenas em gastar melhor, pessoas ricas focam em:
+
+• Aumentar renda.
+• Criar ativos.
+• Aprender constantemente.
+• Investir no longo prazo.
+
+Dinheiro cresce onde existe disciplina, paciência e visão.`,
+      },
+      {
+        id: 'renda-extra-celular',
+        titulo: '7 formas de fazer renda extra usando apenas o celular',
+        categoria: 'Renda Extra',
+        resumo: 'Ideias simples para começar mesmo sem experiência.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '📱',
+        minutos: 7,
+        conteudo: `Hoje é possível ganhar dinheiro usando apenas o celular.
+
+Algumas ideias:
+
+• Marketing de afiliados.
+• Edição de vídeos curtos.
+• Venda de produtos digitais.
+• Gestão de redes sociais.
+• Revenda online.
+• Criação de conteúdo.
+• Freelance.
+
+O mais importante é começar pequeno e manter constância.`,
+      },
+      {
+        id: 'erros-cartao',
+        titulo: 'Os maiores erros no cartão de crédito',
+        categoria: 'Cartão de crédito',
+        resumo: 'Evite armadilhas que acabam destruindo sua vida financeira.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '💳',
+        minutos: 4,
+        conteudo: `O cartão de crédito não é o vilão. O problema é o uso sem controle.
+
+Erros comuns:
+
+• Parcelar compras desnecessárias.
+• Pagar apenas o mínimo.
+• Ter muitos cartões.
+• Comprar por impulso.
+
+Use o cartão como ferramenta, nunca como extensão do salário.`,
+      },
+      {
+        id: 'disciplina-financeira',
+        titulo: 'Como criar disciplina financeira de verdade',
+        categoria: 'Mentalidade',
+        resumo: 'Motivação ajuda, mas disciplina transforma.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '🔥',
+        minutos: 5,
+        conteudo: `Disciplina financeira não nasce pronta.
+
+Ela é construída com:
+
+• Metas pequenas.
+• Repetição.
+• Organização.
+• Constância.
+
+Não tente mudar tudo em um único dia.
+
+Pequenas melhorias feitas todos os meses geram resultados gigantes no futuro.`,
+      },
+      {
+        id: 'primeiro-investimento',
+        titulo: 'Qual deve ser seu primeiro investimento?',
+        categoria: 'Investimentos',
+        resumo: 'Saiba onde começar sem complicação.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '📈',
+        minutos: 6,
+        conteudo: `Antes de pensar em investimentos avançados, monte sua reserva de emergência.
+
+Depois disso, os investimentos mais indicados para iniciantes costumam ser:
+
+• Tesouro Selic.
+• CDB com liquidez diária.
+• Contas remuneradas.
+
+O melhor investimento inicial é aquele que você entende.`,
+      },
+      {
+        id: 'sair-das-dividas',
+        titulo: 'Como sair das dívidas ganhando pouco',
+        categoria: 'Organização',
+        resumo: 'Um plano simples para parar de se enrolar e recuperar o controle.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '🧾',
+        minutos: 6,
+        conteudo: `Sair das dívidas exige clareza e atitude.
+
+Comece listando todas as dívidas: valor, juros, parcelas e prazo. Depois, organize por prioridade. Dívidas com juros mais altos devem receber mais atenção.
+
+Tente negociar, corte gastos temporários e escolha uma quantia fixa mensal para quitar seus débitos.
+
+Não espere sobrar dinheiro. Faça da quitação uma prioridade.`,
+      },
+      {
+        id: 'juntar-mil-reais',
+        titulo: 'Como juntar R$ 1.000 mesmo ganhando pouco',
+        categoria: 'Economia',
+        resumo: 'Aprenda a criar uma meta simples e possível para começar sua reserva.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '🐷',
+        minutos: 5,
+        conteudo: `Juntar R$ 1.000 pode parecer difícil, mas fica mais fácil quando você divide a meta.
+
+Se você guardar R$ 10 por dia, em pouco mais de três meses terá aproximadamente R$ 1.000.
+
+Se não conseguir guardar todos os dias, comece com valores menores. O importante é criar o hábito de separar dinheiro antes de gastar.`,
+      },
+      {
+        id: 'apps-controlar-dinheiro',
+        titulo: '7 aplicativos para controlar seu dinheiro',
+        categoria: 'Ferramentas',
+        resumo: 'Ferramentas que ajudam a acompanhar gastos, metas e orçamento.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '🛠',
+        minutos: 5,
+        conteudo: `Aplicativos financeiros ajudam você a enxergar seus gastos com mais clareza.
+
+Procure ferramentas que tenham:
+
+• Cadastro de receitas e despesas.
+• Categorias de gastos.
+• Relatórios mensais.
+• Controle de metas.
+• Backup dos dados.
+
+O melhor aplicativo é aquele que você realmente consegue usar todos os dias.`,
+      },
+      {
+        id: 'produtividade-financeira',
+        titulo: 'Como a produtividade influencia sua vida financeira',
+        categoria: 'Produtividade',
+        resumo: 'Tempo mal usado também custa dinheiro.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '🚀',
+        minutos: 5,
+        conteudo: `Produtividade não é fazer mil coisas ao mesmo tempo. É usar melhor seu tempo para gerar resultado.
+
+Quando você se organiza, consegue estudar mais, trabalhar melhor, vender mais e tomar decisões financeiras com mais calma.
+
+Dinheiro e tempo caminham juntos. Quem desperdiça tempo, muitas vezes também desperdiça oportunidades.`,
+      },
+      {
+        id: 'livros-financas',
+        titulo: 'Livros que todo iniciante em finanças deveria conhecer',
+        categoria: 'Livros',
+        resumo: 'Uma seleção de obras para mudar sua mentalidade sobre dinheiro.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '📚',
+        minutos: 4,
+        conteudo: `Alguns livros podem acelerar muito sua evolução financeira.
+
+Sugestões para começar:
+
+• Pai Rico, Pai Pobre.
+• O Homem Mais Rico da Babilônia.
+• A Psicologia Financeira.
+• Os Segredos da Mente Milionária.
+• Do Mil ao Milhão.
+• Me Poupe!.
+
+Leia com calma e aplique pelo menos uma ideia por vez. Conhecimento parado não transforma a vida financeira.`,
+      },
+      {
+        id: 'recomecar-do-zero',
+        titulo: 'O que eu faria se tivesse que recomeçar do zero',
+        categoria: 'Mentalidade',
+        resumo: 'Um guia direto para reconstruir sua vida financeira com estratégia.',
+        autor: 'Equipe VeE',
+        data: '20 maio 2026',
+        icone: '🔁',
+        minutos: 6,
+        conteudo: `Se eu tivesse que recomeçar do zero, começaria pelo básico:
+
+• Cortaria gastos desnecessários.
+• Organizaria todas as dívidas.
+• Criaria uma pequena reserva.
+• Estudaria uma habilidade para aumentar renda.
+• Evitaria comparação com outras pessoas.
+
+Recomeçar não é fracassar. É uma oportunidade de fazer melhor, com mais consciência.`,
+      },
+    ];
+
+    const PRODUTOS = [
+      {
+        id: 'pai-rico-pai-pobre',
+        nome: 'Pai Rico, Pai Pobre',
+        categoria: 'Finanças',
+        descricao: 'Clássico sobre educação financeira, ativos, passivos e construção de riqueza.',
+        preco: 'Link de afiliado',
+        destaque: '📚 Mais conhecido',
+        link: 'https://meli.la/21gLCsF',
+        icone: '📘',
+      },
+      {
+        id: 'segredos-mente-milionaria',
+        nome: 'Os Segredos da Mente Milionária',
+        categoria: 'Mentalidade',
+        descricao: 'Livro sobre crenças, hábitos e padrões mentais que influenciam a relação com o dinheiro.',
+        preco: 'Link de afiliado',
+        destaque: '🧠 Mentalidade financeira',
+        link: 'https://meli.la/1jvxoFS',
+        icone: '📗',
+      },
+      {
+        id: 'do-mil-ao-milhao',
+        nome: 'Do Mil ao Milhão',
+        categoria: 'Finanças',
+        descricao: 'Obra brasileira sobre gastar bem, investir melhor e buscar novas fontes de renda.',
+        preco: 'Link de afiliado',
+        destaque: '🇧🇷 Autor brasileiro',
+        link: 'https://meli.la/1Xh2ACF',
+        icone: '📙',
+      },
+      {
+        id: 'me-poupe',
+        nome: 'Me Poupe!',
+        categoria: 'Finanças',
+        descricao: 'Livro com linguagem simples para quem quer sair das dívidas e organizar a vida financeira.',
+        preco: 'Link de afiliado',
+        destaque: '💰 Finanças simples',
+        link: 'https://meli.la/1Xjjv4F',
+        icone: '📕',
+      },
+      {
+        id: 'homem-mais-rico-babilonia',
+        nome: 'O Homem Mais Rico da Babilônia',
+        categoria: 'Finanças',
+        descricao: 'Clássico sobre poupar, controlar gastos e construir riqueza com princípios simples.',
+        preco: 'Link de afiliado',
+        destaque: '🏛 Clássico financeiro',
+        link: 'https://meli.la/2tB9Sss',
+        icone: '📔',
+      },
+      {
+        id: 'psicologia-financeira',
+        nome: 'A Psicologia Financeira',
+        categoria: 'Finanças',
+        descricao: 'Livro sobre comportamento, decisões financeiras e a relação emocional com dinheiro.',
+        preco: 'Link de afiliado',
+        destaque: '🧠 Comportamento',
+        link: 'https://meli.la/1YvwqJ6',
+        icone: '📒',
+      },
+      {
+        id: 'quem-pensa-enriquece',
+        nome: 'Quem Pensa Enriquece',
+        categoria: 'Mentalidade',
+        descricao: 'Livro de desenvolvimento pessoal voltado para objetivos, persistência e prosperidade.',
+        preco: 'Link de afiliado',
+        destaque: '🔥 Desenvolvimento',
+        link: 'https://meli.la/32QnoaK',
+        icone: '📓',
+      },
+      {
+        id: 'trabalhe-4-horas',
+        nome: 'Trabalhe 4 Horas por Semana',
+        categoria: 'Produtividade',
+        descricao: 'Livro sobre produtividade, liberdade, negócios digitais e uso estratégico do tempo.',
+        preco: 'Link de afiliado',
+        destaque: '⏱ Produtividade',
+        link: 'https://meli.la/223N2H2',
+        icone: '📘',
+      },
+      {
+        id: 'habitos-atomicos',
+        nome: 'Hábitos Atômicos',
+        categoria: 'Produtividade',
+        descricao: 'Livro sobre criação de hábitos, disciplina, constância e evolução diária.',
+        preco: 'Link de afiliado',
+        destaque: '🚀 Evolução diária',
+        link: 'https://meli.la/2p6pzJf',
+        icone: '📗',
+      },
+      {
+        id: 'poder-do-habito',
+        nome: 'kit O Poder do Hábito + A Sutil Arte De Ligar O Foda-se',
+        categoria: 'Produtividade',
+        descricao: 'Explica como os hábitos funcionam e como transformá-los na prática.',
+        preco: 'Link de afiliado',
+        destaque: '🔁 Mudança de hábito',
+        link: 'https://meli.la/2wfcQZ2',
+        icone: '📙',
+      },
+      {
+        id: 'essencialismo',
+        nome: 'Essencialismo',
+        categoria: 'Produtividade',
+        descricao: 'Livro para aprender a focar no que realmente importa e eliminar excessos.',
+        preco: 'Link de afiliado',
+        destaque: '🎯 Foco',
+        link: 'https://meli.la/2AH7xHR',
+        icone: '📕',
+      },
+      {
+        id: 'mindset',
+        nome: 'Mindset',
+        categoria: 'Mentalidade',
+        descricao: 'Livro sobre mentalidade de crescimento, aprendizado e superação.',
+        preco: 'Link de afiliado',
+        destaque: '🧠 Crescimento',
+        link: 'https://meli.la/2ZY4m8B',
+        icone: '📔',
+      },
+    ];
+
+    // ── STATE ──
+    let favorites = JSON.parse(localStorage.getItem('vee_favs') || '[]');
+    let currentPage = 'home';
+    let currentArticleFilter = 'Todos';
+    let currentProductFilter = 'Todos';
+    let searchQuery = '';
+
+    // ── RENDER ──
+    function renderArticles(posts, containerId) {
+      const grid = document.getElementById(containerId);
+      grid.innerHTML = posts.map(p => `
+    <a class="article-card" href="#" onclick="openArticle('${p.id}');return false;" data-category="${p.categoria}">
+      <div class="article-icon-wrap">${p.icone}</div>
+      <div class="article-cat">${p.categoria}</div>
+      <div class="article-title">${p.titulo}</div>
+      <div class="article-resume">${p.resumo}</div>
+      <div class="article-meta">
+        <span class="article-meta-info">${p.autor} · ${p.data} · ${p.minutos} min</span>
+        <button class="fav-btn ${favorites.includes(p.id) ? 'active' : ''}" onclick="toggleFav(event,'${p.id}')" aria-label="Favoritar">
+          ${favorites.includes(p.id) ? '❤️' : '🤍'}
+        </button>
+      </div>
+    </a>
+  `).join('');
+    }
+
+    function renderProducts(prods, containerId) {
+      const grid = document.getElementById(containerId);
+      grid.innerHTML = prods.map(p => `
+    <div class="product-card" data-category="${p.categoria}">
+      <div class="product-icon-wrap">${p.icone}</div>
+      <div class="product-cat">${p.categoria}</div>
+      <div class="product-name">${p.nome}</div>
+      <div class="product-desc">${p.descricao}</div>
+      <div class="product-badge">${p.destaque}</div>
+      <div class="product-price">${p.preco}</div>
+      <a class="btn-primary" href="${p.link}" target="_blank" rel="noopener noreferrer">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Ver livro
+      </a>
+      <p class="disclaimer">⚠️ Este botão deve conter seu link de afiliado.</p>
+    </div>
+  `).join('');
+    }
+
+    function renderFavorites() {
+      const favPosts = POSTS.filter(p => favorites.includes(p.id));
+      renderArticles(favPosts, 'favs-grid');
+      const empty = document.getElementById('favs-empty');
+      const grid = document.getElementById('favs-grid');
+      if (favPosts.length === 0) { empty.style.display = 'block'; grid.style.display = 'none'; }
+      else { empty.style.display = 'none'; grid.style.display = 'grid'; }
+    }
+
+    // ── FILTER ──
+    function filterArticles(cat, el) {
+      currentArticleFilter = cat;
+      document.querySelectorAll('#article-chips .chip').forEach(c => c.classList.remove('active'));
+      if (el) el.classList.add('active');
+      applyArticleFilters();
+    }
+
+    function applyArticleFilters() {
+      const q = searchQuery.toLowerCase();
+      let visible = 0;
+      document.querySelectorAll('#articles-grid .article-card').forEach(card => {
+        const catMatch = currentArticleFilter === 'Todos' || card.dataset.category === currentArticleFilter;
+        const textMatch = !q || card.innerText.toLowerCase().includes(q);
+        const show = catMatch && textMatch;
+        card.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+      document.getElementById('articles-no-results').classList.toggle('visible', visible === 0);
+    }
+
+    function filterProducts(cat, el) {
+      currentProductFilter = cat;
+      document.querySelectorAll('#product-chips .chip').forEach(c => c.classList.remove('active'));
+      if (el) el.classList.add('active');
+      applyProductFilters();
+    }
+
+    function applyProductFilters() {
+      const q = searchQuery.toLowerCase();
+      let visible = 0;
+      document.querySelectorAll('#products-grid .product-card').forEach(card => {
+        const catMatch = currentProductFilter === 'Todos' || card.dataset.category === currentProductFilter;
+        const textMatch = !q || card.innerText.toLowerCase().includes(q);
+        const show = catMatch && textMatch;
+        card.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+      document.getElementById('products-no-results').classList.toggle('visible', visible === 0);
+    }
+
+    // ── SEARCH ──
+    function handleSearch(val) {
+      searchQuery = val;
+      if (currentPage === 'home') applyArticleFilters();
+      else if (currentPage === 'produtos') applyProductFilters();
+    }
+
+    // ── NAVIGATION ──
+    function navigate(page) {
+      currentPage = page;
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + page).classList.add('active');
+      document.querySelectorAll('.navbar-nav a').forEach(a => {
+        a.classList.toggle('active', a.dataset.page === page);
+      });
+      if (page === 'favoritos') renderFavorites();
+      document.getElementById('main-nav').classList.remove('open');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return false;
+    }
+
+    function toggleMenu() {
+      document.getElementById('main-nav').classList.toggle('open');
+    }
+
+    // ── MODAL ──
+    function openArticle(id) {
+      const p = POSTS.find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('modal-icon').textContent = p.icone;
+      document.getElementById('modal-cat').textContent = p.categoria.toUpperCase();
+      document.getElementById('modal-title').textContent = p.titulo;
+      document.getElementById('modal-meta').textContent = `${p.autor} · ${p.data} · ${p.minutos} min de leitura`;
+      document.getElementById('modal-content').textContent = p.conteudo;
+
+      const related = PRODUTOS.slice(0, 2);
+      const relEl = document.getElementById('modal-related');
+      if (related.length) {
+        relEl.innerHTML = `<h3>Livros recomendados</h3>` + related.map(pr => `
+      <div style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem 1rem;border:1px solid var(--border);border-radius:12px;margin-bottom:0.6rem">
+        <span style="font-size:1.5rem">${pr.icone}</span>
+        <div style="flex:1">
+          <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--green-600)">${pr.categoria}</div>
+          <div style="font-weight:600;font-size:0.9rem">${pr.nome}</div>
+          <div style="font-size:0.8rem;color:var(--text-3)">${pr.descricao}</div>
+        </div>
+        <a href="${pr.link}" target="_blank" rel="noopener" style="background:var(--green-600);color:#fff;font-size:0.78rem;font-weight:600;padding:.4rem .9rem;border-radius:10px;text-decoration:none;white-space:nowrap">Ver →</a>
+      </div>
+    `).join('');
+      } else {
+        relEl.innerHTML = '';
+      }
+
+      document.getElementById('modal-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target === document.getElementById('modal-overlay')) closeModal();
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // ── FAVORITES ──
+    function toggleFav(e, id) {
+      e.preventDefault(); e.stopPropagation();
+      const idx = favorites.indexOf(id);
+      if (idx >= 0) favorites.splice(idx, 1);
+      else favorites.push(id);
+      localStorage.setItem('vee_favs', JSON.stringify(favorites));
+      // update all fav buttons for this id
+      document.querySelectorAll(`[onclick*="${id}"].fav-btn`).forEach(btn => {
+        const active = favorites.includes(id);
+        btn.classList.toggle('active', active);
+        btn.textContent = active ? '❤️' : '🤍';
+      });
+      if (currentPage === 'favoritos') renderFavorites();
+    }
+
+    // ── INIT ──
+    renderArticles(POSTS, 'articles-grid');
+    renderProducts(PRODUTOS, 'products-grid');
+  </script>
+</body>
+
+</html>
